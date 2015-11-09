@@ -19,10 +19,10 @@
 
 //https://data.cityofnewyork.us/resource/xx67-kt59.json?$limit=1000
 
-var ratsUrl = 'https://data.cityofnewyork.us/resource/xx67-kt59.json?$limit=1000'; 
+var nytUrl = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=police+brutality+u+s&begin_date=18310101&end_date=18311231&api-key=9bcb8c6bad7c5f7b8ea349104cfdcccf%3A14%3A71691949'; 
 
 function preload(){
-	getRats();
+	getNyt();
 }
 
 function setup(){
@@ -35,14 +35,14 @@ function draw(){
 
 
 // this is gonna grab the NYC open data stuff
-function getRats(){
+function getNyt(){
 
 	 // this will download the city open data on the health violations:
-  rats = loadJSON(ratsUrl, ratsDownloaded); // asynchronous API call
+  articles = loadJSON(nytUrl, articlesLoaded); // asynchronous API call
 
 }
 
-function ratsDownloaded(){
+function artcilesLoaded(){
 	// this will run once the city open data is grabbed
 	console.log(rats.length); // how many records?
 }
